@@ -1,0 +1,23 @@
+#container {
+    width: 100%;
+    margin: 5em auto;
+    padding: 0;
+    
+    
+}
+
+.items {
+    min-width: 1000px;
+    height: 600px;
+   
+}
+
+#left, #right {
+    margin: 30px;
+
+}
+
+#img-slide{
+   
+    height: 100%;
+}

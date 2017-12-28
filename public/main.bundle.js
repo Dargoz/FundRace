@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#container {\r\n    width: 100%;\r\n    margin: 5em auto;\r\n    padding: 0;\r\n    \r\n    \r\n}\r\n\r\n.items {\r\n    min-width: 1000px;\r\n    height: 600px;\r\n   \r\n}\r\n\r\n#left, #right {\r\n    margin: 30px;\r\n\r\n}\r\n\r\n#img-slide{\r\n   \r\n    height: 100%;\r\n}", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n<div class=\"container\">\r\n  <flash-messages></flash-messages>\r\n  <router-outlet></router-outlet>\r\n</div>\r\n<app-footer-bar></app-footer-bar>\r\n"
+module.exports = "<app-navbar></app-navbar>\r\n<div id=\"container\">\r\n  <div ng2-carouselamos class=\"slides-wrapper\"\r\n   [items]=\"items\" \r\n   [width]=\"900\" \r\n   [$prev]=\"prev\" \r\n   [$next]=\"next\" \r\n   [$item]=\"item\">\r\n\r\n  </div>\r\n\r\n  <ng-template #prev>\r\n    <img src=\"../assets/arrow-left.png\" id=\"left\">\r\n  </ng-template>\r\n\r\n  <ng-template #next>\r\n    <img src=\"../assets/arrow-right.png\" id=\"right\">\r\n  </ng-template>\r\n\r\n  <ng-template #item let-item let-i=\"index\">\r\n\r\n    <div class=\"items\">\r\n        \r\n      {{ item.name }}\r\n      \r\n      <app-home></app-home>\r\n      <!--<router-outlet></router-outlet> -->\r\n    </div>\r\n\r\n  </ng-template>\r\n  \r\n</div>\r\n<app-footer-bar></app-footer-bar>\r\n\r\n"
 
 /***/ }),
 
@@ -54,17 +54,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'app works!';
+        this.items = [];
+        this.items = [
+            // { name: 'assets/Armour.jpg'},
+            // { name: 'assets/pahawang.jpg'},
+            // { name: 'assets/Armour.jpg'},
+            // { name: 'assets/pahawang.jpg'},
+            // { name: 'assets/Armour.jpg'},
+            // { name: 'assets/pahawang.jpg'},
+            // { name: 'assets/Armour.jpg'},
+            // { name: 'assets/pahawang.jpg'},
+            { name: 'Slide 2' },
+            { name: 'Slide 3' },
+            { name: 'Slide 4' },
+            { name: 'Slide 5' },
+            { name: 'Slide 6' },
+            { name: 'Slide 7' },
+            { name: 'Slide 8' },
+        ];
     }
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [])
     ], AppComponent);
     return AppComponent;
 }());
@@ -96,12 +117,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_footer_bar_footer_bar_component__ = __webpack_require__("../../../../../src/app/components/footer-bar/footer-bar.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_carouselamos__ = __webpack_require__("../../../../ng2-carouselamos/dist/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -146,7 +169,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
                 __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes),
-                __WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages__["FlashMessagesModule"]
+                __WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages__["FlashMessagesModule"],
+                __WEBPACK_IMPORTED_MODULE_17_ng2_carouselamos__["a" /* Ng2CarouselamosModule */]
             ],
             providers: [__WEBPACK_IMPORTED_MODULE_12__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_13__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
@@ -459,7 +483,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/navbar/navbar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\" id=\"navbar\">\r\n      <div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <a class=\"navbar-brand\" href=\"#\">FundRace App</a>\r\n        </div>\r\n        <div id=\"navbar\" class=\"collapse navbar-collapse\">\r\n          <ul class=\"nav navbar-nav navbar-left\">\r\n            <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\r\n          </ul>\r\n\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n            <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li>\r\n            <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/profile']\">Profile</a></li>\r\n\r\n            <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/login']\">Login</a></li>\r\n            <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/register']\">Register</a></li>\r\n            <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\r\n          </ul>\r\n\r\n        </div><!--/.nav-collapse -->\r\n\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <div id=\"nav-text\">\r\n              <a  [routerLink]=\"['/']\" id=\"nav-link\">beranda</a> <b>  |  </b>\r\n              <a  [routerLink]=\"['/']\" id=\"nav-link\">peringkat</a> <b>  |  </b>\r\n              <a class=\"btn btn-default\" [routerLink]=\"['/register']\" id=\"nav-link\">Register</a>  <b>  |  </b>\r\n              <a class=\"btn btn-default\" [routerLink]=\"['/login']\" id=\"nav-link\">Login</a>\r\n          </div>\r\n        </ul>\r\n\r\n      </div>\r\n    </nav>\r\n"
+module.exports = "<nav class=\"navbar navbar-default\" id=\"navbar\">\r\n      <div class=\"container-fluid\">\r\n        <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\r\n            <span class=\"sr-only\">Toggle navigation</span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n            <span class=\"icon-bar\"></span>\r\n          </button>\r\n          <a class=\"navbar-brand\" href=\"#\">FundRace App</a>\r\n        </div>\r\n        <div id=\"navbar\" class=\"collapse navbar-collapse\">\r\n          <ul class=\"nav navbar-nav navbar-left\">\r\n            <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\r\n          </ul>\r\n\r\n          <ul class=\"nav navbar-nav navbar-right\">\r\n            <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/dashboard']\">Dashboard</a></li>\r\n            <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/profile']\">Profile</a></li>\r\n\r\n            <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/login']\">Login</a></li>\r\n            <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/register']\">Register</a></li>\r\n            <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>\r\n          </ul>\r\n\r\n        </div><!--/.nav-collapse -->\r\n\r\n        <ul class=\"nav navbar-nav navbar-right\">\r\n          <div id=\"nav-text\">\r\n              <a  [routerLink]=\"['/']\" id=\"nav-link\">beranda</a> <b>  |  </b>\r\n              <a  [routerLink]=\"['/']\" id=\"nav-link\">peringkat</a> <b>  |  </b>\r\n              <a  [routerLink]=\"['/register']\" id=\"nav-link\">Register</a>  <b>  |  </b>\r\n              <a  [routerLink]=\"['/login']\" id=\"nav-link\">Login</a>\r\n          </div>\r\n        </ul>\r\n\r\n      </div>\r\n    </nav>\r\n"
 
 /***/ }),
 

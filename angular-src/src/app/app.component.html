@@ -1,6 +1,34 @@
 <app-navbar></app-navbar>
-<div class="container">
-  <flash-messages></flash-messages>
-  <router-outlet></router-outlet>
+<div id="container">
+  <div ng2-carouselamos class="slides-wrapper"
+   [items]="items" 
+   [width]="900" 
+   [$prev]="prev" 
+   [$next]="next" 
+   [$item]="item">
+
+  </div>
+
+  <ng-template #prev>
+    <img src="../assets/arrow-left.png" id="left">
+  </ng-template>
+
+  <ng-template #next>
+    <img src="../assets/arrow-right.png" id="right">
+  </ng-template>
+
+  <ng-template #item let-item let-i="index">
+
+    <div class="items">
+        
+      {{ item.name }}
+      
+      <app-home></app-home>
+      <!--<router-outlet></router-outlet> -->
+    </div>
+
+  </ng-template>
+  
 </div>
 <app-footer-bar></app-footer-bar>
+
