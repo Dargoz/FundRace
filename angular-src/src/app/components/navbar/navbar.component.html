@@ -26,8 +26,11 @@
         </div><!--/.nav-collapse -->
 
         <ul class="nav navbar-nav navbar-right">
-          <div>
-            <a class="btn btn-primary" [routerLink]="['/register']">Register</a> <a class="btn btn-default" [routerLink]="['/login']">Login</a>
+          <div id="nav-text">
+              <a  [routerLink]="['/']" id="nav-link">beranda</a> <b>  |  </b>
+              <a  [routerLink]="['/']" id="nav-link">peringkat</a> <b>  |  </b>
+              <a class="btn btn-default" [routerLink]="['/register']" id="nav-link">Register</a>  <b>  |  </b>
+              <a class="btn btn-default" [routerLink]="['/login']" id="nav-link">Login</a>
           </div>
         </ul>
 
