@@ -16,6 +16,7 @@ import {ValidateService} from './services/validate.service';
 import {AuthService} from './services/auth.service';
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {AuthGuard} from './guards/auth.guard';
+import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 
 const appRoutes: Routes =  [
   {path:'', component: HomeComponent},
@@ -33,7 +34,8 @@ const appRoutes: Routes =  [
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    FooterBarComponent
   ],
   imports: [
     BrowserModule,
