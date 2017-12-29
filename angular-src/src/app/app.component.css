@@ -9,7 +9,8 @@
 .items {
     min-width: 1000px;
     height: 600px;
-   
+    margin-left: 150px;
+    color: white;
 }
 
 #left, #right {
@@ -20,4 +21,9 @@
 #img-slide{
    
     height: 100%;
+}
+
+.content-html {
+    width: 100%;
+    margin: 1em auto;
 }

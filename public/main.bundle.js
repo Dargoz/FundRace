@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#container {\r\n    width: 100%;\r\n    margin: 5em auto;\r\n    padding: 0;\r\n    \r\n    \r\n}\r\n\r\n.items {\r\n    min-width: 1000px;\r\n    height: 600px;\r\n   \r\n}\r\n\r\n#left, #right {\r\n    margin: 30px;\r\n\r\n}\r\n\r\n#img-slide{\r\n   \r\n    height: 100%;\r\n}", ""]);
+exports.push([module.i, "#container {\r\n    width: 100%;\r\n    margin: 5em auto;\r\n    padding: 0;\r\n    \r\n    \r\n}\r\n\r\n.items {\r\n    min-width: 1000px;\r\n    height: 600px;\r\n    margin-left: 150px;\r\n    color: white;\r\n}\r\n\r\n#left, #right {\r\n    margin: 30px;\r\n\r\n}\r\n\r\n#img-slide{\r\n   \r\n    height: 100%;\r\n}\r\n\r\n.content-html {\r\n    width: 100%;\r\n    margin: 1em auto;\r\n}", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n<div id=\"container\">\r\n  <div ng2-carouselamos class=\"slides-wrapper\"\r\n   [items]=\"items\" \r\n   [width]=\"900\" \r\n   [$prev]=\"prev\" \r\n   [$next]=\"next\" \r\n   [$item]=\"item\">\r\n\r\n  </div>\r\n\r\n  <ng-template #prev>\r\n    <img src=\"../assets/arrow-left.png\" id=\"left\">\r\n  </ng-template>\r\n\r\n  <ng-template #next>\r\n    <img src=\"../assets/arrow-right.png\" id=\"right\">\r\n  </ng-template>\r\n\r\n  <ng-template #item let-item let-i=\"index\">\r\n\r\n    <div class=\"items\">\r\n        \r\n      {{ item.name }}\r\n      \r\n      <app-home></app-home>\r\n      <!--<router-outlet></router-outlet> -->\r\n    </div>\r\n\r\n  </ng-template>\r\n  \r\n</div>\r\n<app-footer-bar></app-footer-bar>\r\n\r\n"
+module.exports = "<app-navbar></app-navbar>\r\n<div id=\"container\">\r\n  <div ng2-carouselamos class=\"slides-wrapper\"\r\n   [items]=\"items\" \r\n   [width]=\"1000\" \r\n   [$prev]=\"prev\" \r\n   [$next]=\"next\" \r\n   [$item]=\"item\">\r\n\r\n  </div>\r\n\r\n  <ng-template #prev>\r\n    <img src=\"../assets/arrow-left.png\" id=\"left\">\r\n  </ng-template>\r\n\r\n  <ng-template #next>\r\n    <img src=\"../assets/arrow-right.png\" id=\"right\">\r\n  </ng-template>\r\n\r\n  <ng-template #item let-item let-i=\"index\">\r\n\r\n    <div class=\"items\">\r\n      \r\n      {{ item.name }}\r\n     \r\n      <div *ngIf=\"item.name == 'Slide 2';else alert\" class=\"content-html\">\r\n        <app-home></app-home>\r\n      </div>\r\n      <!-- <app-home></app-home> -->\r\n      <!--<router-outlet></router-outlet> -->\r\n      <ng-template #alert>\r\n        not found\r\n      </ng-template>\r\n    </div>\r\n\r\n  </ng-template>\r\n  \r\n</div>\r\n<app-footer-bar></app-footer-bar>\r\n\r\n"
 
 /***/ }),
 
@@ -58,7 +58,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var AppComponent = /** @class */ (function () {
+var AppComponent = (function () {
     function AppComponent() {
         this.items = [];
         this.items = [
@@ -79,16 +79,16 @@ var AppComponent = /** @class */ (function () {
             { name: 'Slide 8' },
         ];
     }
-    AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-root',
-            template: __webpack_require__("../../../../../src/app/app.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/app.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], AppComponent);
     return AppComponent;
 }());
+AppComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-root',
+        template: __webpack_require__("../../../../../src/app/app.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/app.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AppComponent);
 
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/app.component.js.map
 
@@ -149,35 +149,35 @@ var appRoutes = [
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] }
 ];
-var AppModule = /** @class */ (function () {
+var AppModule = (function () {
     function AppModule() {
     }
-    AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__["a" /* NavbarComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_footer_bar_footer_bar_component__["a" /* FooterBarComponent */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
-                __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes),
-                __WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages__["FlashMessagesModule"],
-                __WEBPACK_IMPORTED_MODULE_17_ng2_carouselamos__["a" /* Ng2CarouselamosModule */]
-            ],
-            providers: [__WEBPACK_IMPORTED_MODULE_12__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_13__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
-        })
-    ], AppModule);
     return AppModule;
 }());
+AppModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__["a" /* NavbarComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_footer_bar_footer_bar_component__["a" /* FooterBarComponent */]
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes),
+            __WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages__["FlashMessagesModule"],
+            __WEBPACK_IMPORTED_MODULE_17_ng2_carouselamos__["a" /* Ng2CarouselamosModule */]
+        ],
+        providers: [__WEBPACK_IMPORTED_MODULE_12__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_13__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
+    })
+], AppModule);
 
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/app.module.js.map
 
@@ -224,21 +224,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var DashboardComponent = /** @class */ (function () {
+var DashboardComponent = (function () {
     function DashboardComponent() {
     }
     DashboardComponent.prototype.ngOnInit = function () {
     };
-    DashboardComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-dashboard',
-            template: __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], DashboardComponent);
     return DashboardComponent;
 }());
+DashboardComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-dashboard',
+        template: __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], DashboardComponent);
 
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/dashboard.component.js.map
 
@@ -285,21 +285,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var FooterBarComponent = /** @class */ (function () {
+var FooterBarComponent = (function () {
     function FooterBarComponent() {
     }
     FooterBarComponent.prototype.ngOnInit = function () {
     };
-    FooterBarComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-footer-bar',
-            template: __webpack_require__("../../../../../src/app/components/footer-bar/footer-bar.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/footer-bar/footer-bar.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], FooterBarComponent);
     return FooterBarComponent;
 }());
+FooterBarComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-footer-bar',
+        template: __webpack_require__("../../../../../src/app/components/footer-bar/footer-bar.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/footer-bar/footer-bar.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], FooterBarComponent);
 
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/footer-bar.component.js.map
 
@@ -346,21 +346,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var HomeComponent = /** @class */ (function () {
+var HomeComponent = (function () {
     function HomeComponent() {
     }
     HomeComponent.prototype.ngOnInit = function () {
     };
-    HomeComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-home',
-            template: __webpack_require__("../../../../../src/app/components/home/home.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/home/home.component.css")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], HomeComponent);
     return HomeComponent;
 }());
+HomeComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-home',
+        template: __webpack_require__("../../../../../src/app/components/home/home.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/home/home.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], HomeComponent);
 
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/home.component.js.map
 
@@ -414,7 +414,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var LoginComponent = /** @class */ (function () {
+var LoginComponent = (function () {
     function LoginComponent(authService, router, flashMessage) {
         this.authService = authService;
         this.router = router;
@@ -446,18 +446,18 @@ var LoginComponent = /** @class */ (function () {
             }
         });
     };
-    LoginComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-login',
-            template: __webpack_require__("../../../../../src/app/components/login/login.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/login/login.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _c || Object])
-    ], LoginComponent);
     return LoginComponent;
-    var _a, _b, _c;
 }());
+LoginComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-login',
+        template: __webpack_require__("../../../../../src/app/components/login/login.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/login/login.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _c || Object])
+], LoginComponent);
 
+var _a, _b, _c;
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/login.component.js.map
 
 /***/ }),
@@ -510,7 +510,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var NavbarComponent = /** @class */ (function () {
+var NavbarComponent = (function () {
     function NavbarComponent(authService, router, flashMessage) {
         this.authService = authService;
         this.router = router;
@@ -527,18 +527,18 @@ var NavbarComponent = /** @class */ (function () {
         this.router.navigate(['/login']);
         return false;
     };
-    NavbarComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-navbar',
-            template: __webpack_require__("../../../../../src/app/components/navbar/navbar.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _c || Object])
-    ], NavbarComponent);
     return NavbarComponent;
-    var _a, _b, _c;
 }());
+NavbarComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-navbar',
+        template: __webpack_require__("../../../../../src/app/components/navbar/navbar.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/navbar/navbar.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _c || Object])
+], NavbarComponent);
 
+var _a, _b, _c;
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/navbar.component.js.map
 
 /***/ }),
@@ -588,7 +588,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ProfileComponent = /** @class */ (function () {
+var ProfileComponent = (function () {
     function ProfileComponent(authService, router) {
         this.authService = authService;
         this.router = router;
@@ -602,18 +602,18 @@ var ProfileComponent = /** @class */ (function () {
             return false;
         });
     };
-    ProfileComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-profile',
-            template: __webpack_require__("../../../../../src/app/components/profile/profile.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/profile/profile.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
-    ], ProfileComponent);
     return ProfileComponent;
-    var _a, _b;
 }());
+ProfileComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-profile',
+        template: __webpack_require__("../../../../../src/app/components/profile/profile.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/profile/profile.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], ProfileComponent);
 
+var _a, _b;
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/profile.component.js.map
 
 /***/ }),
@@ -668,7 +668,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var RegisterComponent = /** @class */ (function () {
+var RegisterComponent = (function () {
     function RegisterComponent(validateService, flashMessage, authService, router) {
         this.validateService = validateService;
         this.flashMessage = flashMessage;
@@ -707,18 +707,18 @@ var RegisterComponent = /** @class */ (function () {
             }
         });
     };
-    RegisterComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-register',
-            template: __webpack_require__("../../../../../src/app/components/register/register.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/components/register/register.component.css")]
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _d || Object])
-    ], RegisterComponent);
     return RegisterComponent;
-    var _a, _b, _c, _d;
 }());
+RegisterComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-register',
+        template: __webpack_require__("../../../../../src/app/components/register/register.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/register/register.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_validate_service__["a" /* ValidateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _d || Object])
+], RegisterComponent);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/register.component.js.map
 
 /***/ }),
@@ -743,7 +743,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AuthGuard = /** @class */ (function () {
+var AuthGuard = (function () {
     function AuthGuard(authService, router) {
         this.authService = authService;
         this.router = router;
@@ -757,14 +757,14 @@ var AuthGuard = /** @class */ (function () {
             return false;
         }
     };
-    AuthGuard = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
-    ], AuthGuard);
     return AuthGuard;
-    var _a, _b;
 }());
+AuthGuard = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _b || Object])
+], AuthGuard);
 
+var _a, _b;
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/auth.guard.js.map
 
 /***/ }),
@@ -792,7 +792,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AuthService = /** @class */ (function () {
+var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
         this.isDev = true; // Change to false before deployment
@@ -846,14 +846,14 @@ var AuthService = /** @class */ (function () {
             return 'http://localhost:8080/' + ep;
         }
     };
-    AuthService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _a || Object])
-    ], AuthService);
     return AuthService;
-    var _a;
 }());
+AuthService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === "function" && _a || Object])
+], AuthService);
 
+var _a;
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/auth.service.js.map
 
 /***/ }),
@@ -874,7 +874,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ValidateService = /** @class */ (function () {
+var ValidateService = (function () {
     function ValidateService() {
     }
     ValidateService.prototype.validateRegister = function (user) {
@@ -889,12 +889,12 @@ var ValidateService = /** @class */ (function () {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
     };
-    ValidateService = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [])
-    ], ValidateService);
     return ValidateService;
 }());
+ValidateService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], ValidateService);
 
 //# sourceMappingURL=C:/Users/Gamer/Desktop/FundRace/angular-src/src/validate.service.js.map
 
@@ -909,6 +909,7 @@ var ValidateService = /** @class */ (function () {
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `angular-cli.json`.
+// The file contents for the current environment will overwrite these during build.
 var environment = {
     production: false
 };
