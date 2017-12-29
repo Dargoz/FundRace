@@ -9,13 +9,17 @@
       <router-outlet></router-outlet> 
 -->
 
+
   <div class="row">
+    
     <carousel [interval]="0" id="my-carousel">
+      <flash-messages></flash-messages>
       <slide class="carousel-slide">
         <app-home id="content-html"></app-home>
       </slide>
       <slide class="carousel-slide">
         <app-register></app-register>
+
       </slide>
       <slide class="carousel-slide">
         <app-login></app-login>
