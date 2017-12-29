@@ -1,40 +1,31 @@
-<app-navbar></app-navbar>
-<div id="container">
-  <div ng2-carouselamos class="slides-wrapper"
-   [items]="items" 
-   [width]="1000" 
-   [$prev]="prev" 
-   [$next]="next" 
-   [$item]="item">
-
+<div id="body-container">
+  <div>
+    <app-navbar></app-navbar>
   </div>
 
-  <ng-template #prev>
-    <img src="../assets/arrow-left.png" id="left">
-  </ng-template>
+  <!-- 
 
-  <ng-template #next>
-    <img src="../assets/arrow-right.png" id="right">
-  </ng-template>
+      <flash-messages></flash-messages>
+      <router-outlet></router-outlet> 
+-->
 
-  <ng-template #item let-item let-i="index">
+  <div class="row">
+    <carousel [interval]="0" id="my-carousel">
+      <slide class="carousel-slide">
+        <app-home id="content-html"></app-home>
+      </slide>
+      <slide class="carousel-slide">
+        <app-register></app-register>
+      </slide>
+      <slide class="carousel-slide">
+        <app-login></app-login>
+      </slide>
+    </carousel>
+  </div>
 
-    <div class="items">
-      
-      {{ item.name }}
-     
-      <div *ngIf="item.name == 'Slide 2';else alert" class="content-html">
-        <app-home></app-home>
-      </div>
-      <!-- <app-home></app-home> -->
-      <!--<router-outlet></router-outlet> -->
-      <ng-template #alert>
-        not found
-      </ng-template>
-    </div>
+  <div>
+    <app-footer-bar></app-footer-bar>
+  </div>
 
-  </ng-template>
-  
+
 </div>
-<app-footer-bar></app-footer-bar>
-

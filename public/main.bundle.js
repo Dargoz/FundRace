@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#container {\r\n    width: 100%;\r\n    margin: 5em auto;\r\n    padding: 0;\r\n    \r\n    \r\n}\r\n\r\n.items {\r\n    min-width: 1000px;\r\n    height: 600px;\r\n    margin-left: 150px;\r\n    color: white;\r\n}\r\n\r\n#left, #right {\r\n    margin: 30px;\r\n\r\n}\r\n\r\n#img-slide{\r\n   \r\n    height: 100%;\r\n}\r\n\r\n.content-html {\r\n    width: 100%;\r\n    margin: 1em auto;\r\n}", ""]);
+exports.push([module.i, "\r\n#body-container{\r\n    height: 100%;\r\n}\r\n\r\n\r\n#my-carousel{\r\n   position: fixed;\r\n    margin: 5em auto;\r\n    width: 95%;\r\n    \r\n}\r\n\r\n.carousel-slide{\r\n    \r\n}", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n<div id=\"container\">\r\n  <div ng2-carouselamos class=\"slides-wrapper\"\r\n   [items]=\"items\" \r\n   [width]=\"1000\" \r\n   [$prev]=\"prev\" \r\n   [$next]=\"next\" \r\n   [$item]=\"item\">\r\n\r\n  </div>\r\n\r\n  <ng-template #prev>\r\n    <img src=\"../assets/arrow-left.png\" id=\"left\">\r\n  </ng-template>\r\n\r\n  <ng-template #next>\r\n    <img src=\"../assets/arrow-right.png\" id=\"right\">\r\n  </ng-template>\r\n\r\n  <ng-template #item let-item let-i=\"index\">\r\n\r\n    <div class=\"items\">\r\n      \r\n      {{ item.name }}\r\n     \r\n      <div *ngIf=\"item.name == 'Slide 2';else alert\" class=\"content-html\">\r\n        <app-home></app-home>\r\n      </div>\r\n      <!-- <app-home></app-home> -->\r\n      <!--<router-outlet></router-outlet> -->\r\n      <ng-template #alert>\r\n        not found\r\n      </ng-template>\r\n    </div>\r\n\r\n  </ng-template>\r\n  \r\n</div>\r\n<app-footer-bar></app-footer-bar>\r\n\r\n"
+module.exports = "<div id=\"body-container\">\r\n  <div>\r\n    <app-navbar></app-navbar>\r\n  </div>\r\n\r\n  <!-- \r\n\r\n      <flash-messages></flash-messages>\r\n      <router-outlet></router-outlet> \r\n-->\r\n\r\n  <div class=\"row\">\r\n    <carousel [interval]=\"0\" id=\"my-carousel\">\r\n      <slide class=\"carousel-slide\">\r\n        <app-home id=\"content-html\"></app-home>\r\n      </slide>\r\n      <slide class=\"carousel-slide\">\r\n        <app-register></app-register>\r\n      </slide>\r\n      <slide class=\"carousel-slide\">\r\n        <app-login></app-login>\r\n      </slide>\r\n    </carousel>\r\n  </div>\r\n\r\n  <div>\r\n    <app-footer-bar></app-footer-bar>\r\n  </div>\r\n\r\n\r\n</div>"
 
 /***/ }),
 
@@ -118,6 +118,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_footer_bar_footer_bar_component__ = __webpack_require__("../../../../../src/app/components/footer-bar/footer-bar.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_carouselamos__ = __webpack_require__("../../../../ng2-carouselamos/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_ngx_bootstrap_carousel__ = __webpack_require__("../../../../ngx-bootstrap/carousel/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -142,10 +143,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */] },
-    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */], outlet: 'home' },
+    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */], outlet: 'registerpage' },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */], outlet: 'loginpage' },
     { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]] }
 ];
@@ -172,7 +174,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(appRoutes),
             __WEBPACK_IMPORTED_MODULE_14_angular2_flash_messages__["FlashMessagesModule"],
-            __WEBPACK_IMPORTED_MODULE_17_ng2_carouselamos__["a" /* Ng2CarouselamosModule */]
+            __WEBPACK_IMPORTED_MODULE_17_ng2_carouselamos__["a" /* Ng2CarouselamosModule */],
+            __WEBPACK_IMPORTED_MODULE_18_ngx_bootstrap_carousel__["a" /* CarouselModule */].forRoot()
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_12__services_validate_service__["a" /* ValidateService */], __WEBPACK_IMPORTED_MODULE_13__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_15__guards_auth_guard__["a" /* AuthGuard */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
@@ -265,7 +268,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/footer-bar/footer-bar.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\" id=\"footer\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\" class=\"link-color\">K3 ARMOUR PPTI 4 BCA © 2017-2018</a>\n    </div>\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n      <ul class=\"nav navbar-nav navbar-left\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\n      </ul>\n\n      <ul class=\"nav navbar-nav navbar-right\">\n        \n      </ul>\n\n    </div><!--/.nav-collapse -->\n\n    <ul class=\"nav navbar-nav navbar-right\">\n      <div>\n        <a [routerLink]=\"['/']\" class=\"link-color\">Hubungi kami</a> <b>  |  </b>\n        <a [routerLink]=\"['/']\" class=\"link-color\">Tentang kami</a> <b>  |  </b>\n        <a [routerLink]=\"['/']\" class=\"link-color\">sosial media</a> <b>  |  </b>\n        <a [routerLink]=\"['/']\" class=\"link-color\">Ketentuan penggunaan</a>\n      </div>\n    </ul>\n\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-default\" id=\"footer\">\r\n  <div class=\"container-fluid\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand\" href=\"#\" class=\"link-color\">K3 ARMOUR PPTI 4 BCA © 2017-2018</a>\r\n    </div>\r\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\r\n      <ul class=\"nav navbar-nav navbar-left\">\r\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions] = \"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\r\n      </ul>\r\n\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        \r\n      </ul>\r\n\r\n    </div><!--/.nav-collapse -->\r\n\r\n    <ul class=\"nav navbar-nav navbar-right\">\r\n      <div>\r\n        <a [routerLink]=\"['/']\" class=\"link-color\">Hubungi kami</a> <b>  |  </b>\r\n        <a [routerLink]=\"['/']\" class=\"link-color\">Tentang kami</a> <b>  |  </b>\r\n        <a [routerLink]=\"['/']\" class=\"link-color\">sosial media</a> <b>  |  </b>\r\n        <a [routerLink]=\"['/']\" class=\"link-color\">Ketentuan penggunaan</a>\r\n      </div>\r\n    </ul>\r\n\r\n  </div>\r\n</nav>\r\n"
 
 /***/ }),
 
@@ -313,7 +316,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#highlight {\r\n    margin-top: 100px;\r\n    color: white;\r\n    font-size: 1.7em;\r\n}\r\n\r\n#join-link {\r\n    color: yellow;\r\n}\r\n\r\n#home-paragraph {\r\n    font-size: 0.7em;\r\n}\r\n\r\n#donate-link {\r\n    color: aqua;\r\n}\r\n\r\n#article-link {\r\n    color: yellow;\r\n}", ""]);
+exports.push([module.i, "#highlight {\r\n    \r\n    color: white;\r\n    font-size: 1.7em;\r\n    margin-top: 100px;\r\n    margin-left: 10em;\r\n    margin-bottom: 2em;\r\n}\r\n\r\n#join-link {\r\n    color: yellow;\r\n}\r\n\r\n#home-paragraph {\r\n    font-size: 0.7em;\r\n}\r\n\r\n#donate-link {\r\n    color: aqua;\r\n}\r\n\r\n#article-link {\r\n    color: yellow;\r\n}", ""]);
 
 // exports
 
@@ -374,7 +377,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#container-login {\r\n    margin-top: 100px;\r\n    margin-left: 15em;\r\n    margin-right: 15em;\r\n    margin-bottom: 2em;\r\n}", ""]);
 
 // exports
 
@@ -387,7 +390,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Login</h2>\r\n<form (submit)=\"onLoginSubmit()\">\r\n  <div class=\"form-group\">\r\n    <label>Username</label>\r\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password</label>\r\n    <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\r\n  </div>\r\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\r\n</form>\r\n"
+module.exports = "<div id=\"container-login\">\r\n    <h2 class=\"page-header\">Login</h2>\r\n    <form (submit)=\"onLoginSubmit()\">\r\n      <div class=\"form-group\">\r\n        <label>Username</label>\r\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label>Password</label>\r\n        <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\r\n      </div>\r\n      <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\r\n    </form>\r\n</div>"
 
 /***/ }),
 
@@ -470,7 +473,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#navbar{\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    \r\n}\r\n\r\n#nav-text{\r\n    color: white;\r\n}\r\n\r\n#nav-link {\r\n    color: white;\r\n}", ""]);
+exports.push([module.i, "#navbar{\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    position: fixed;\r\n    width: 100%;\r\n    top: 0;\r\n    z-index: 999;\r\n}\r\n\r\n#nav-text{\r\n    color: white;\r\n}\r\n\r\n#nav-link {\r\n    color: white;\r\n}", ""]);
 
 // exports
 
@@ -626,7 +629,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#container-register {\r\n    margin-top: 100px;\r\n    margin-left: 15em;\r\n    margin-right: 15em;\r\n    margin-bottom: 2em;\r\n}", ""]);
 
 // exports
 
@@ -639,7 +642,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Register</h2>\r\n<form (submit)=\"onRegisterSubmit()\">\r\n  <div class=\"form-group\">\r\n    <label>Name</label>\r\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Username</label>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Email</label>\r\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\" >\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password</label>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\r\n  </div>\r\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\r\n</form>\r\n"
+module.exports = "<div id=\"container-register\">\r\n<h2 class=\"page-header\">Register</h2>\r\n<form (submit)=\"onRegisterSubmit()\">\r\n  <div class=\"form-group\">\r\n    <label>Name</label>\r\n    <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Username</label>\r\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Email</label>\r\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\" >\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label>Password</label>\r\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\r\n  </div>\r\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\r\n</form>\r\n</div>"
 
 /***/ }),
 

@@ -1,29 +1,16 @@
-#container {
-    width: 100%;
-    margin: 5em auto;
-    padding: 0;
-    
-    
-}
 
-.items {
-    min-width: 1000px;
-    height: 600px;
-    margin-left: 150px;
-    color: white;
-}
-
-#left, #right {
-    margin: 30px;
-
-}
-
-#img-slide{
-   
+#body-container{
     height: 100%;
 }
 
-.content-html {
-    width: 100%;
-    margin: 1em auto;
+
+#my-carousel{
+   position: fixed;
+    margin: 5em auto;
+    width: 95%;
+    
+}
+
+.carousel-slide{
+    
 }

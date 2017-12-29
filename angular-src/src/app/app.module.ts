@@ -18,10 +18,11 @@ import {FlashMessagesModule} from 'angular2-flash-messages';
 import {AuthGuard} from './guards/auth.guard';
 import { FooterBarComponent } from './components/footer-bar/footer-bar.component';
 import{ Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 const appRoutes: Routes =  [
-  {path:'', component: HomeComponent},
-  {path:'register', component: RegisterComponent},
-  {path:'login', component: LoginComponent},
+  {path:'', component: HomeComponent, outlet: 'home'},
+  {path:'register', component: RegisterComponent , outlet: 'registerpage'},
+  {path:'login', component: LoginComponent, outlet: 'loginpage'},
   {path:'dashboard', component: DashboardComponent, canActivate:[AuthGuard]},
   {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]}
 ]
@@ -43,7 +44,8 @@ const appRoutes: Routes =  [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule,
-    Ng2CarouselamosModule
+    Ng2CarouselamosModule,
+    CarouselModule.forRoot()
   ],
   providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
