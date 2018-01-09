@@ -1,40 +1,25 @@
-<nav class="navbar navbar-default" id="navbar">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">FundRace App</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-left">
-            <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/']">Home</a></li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/dashboard']">Dashboard</a></li>
-            <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/profile']">Profile</a></li>
-
-            <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/login']">Login</a></li>
-            <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}"><a [routerLink]="['/register']">Register</a></li>
-            <li *ngIf="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
-          </ul>
-
-        </div><!--/.nav-collapse -->
-
-        <ul class="nav navbar-nav navbar-right">
-          <div id="nav-text">
-              <a  [routerLink]="['/']" id="nav-link">Beranda &nbsp;</a> <b>  |  </b>
-              <a  [routerLink]="['/']" id="nav-link">&nbsp; Campaign &nbsp;</a> <b>  |  </b>
-              <a  [routerLink]="['/']" id="nav-link">&nbsp; Peringkat &nbsp;</a> <b>  |  </b>
-              <a  [routerLink]="['/register']" id="nav-link">&nbsp; Register &nbsp;</a>  <b>  |  </b>
-              <a  [routerLink]="['/login']" id="nav-link">&nbsp; Login &nbsp;</a> <b>  |  </b>
-              <a  [routerLink]="['/']" id="nav-link">&nbsp; FundRacer's Cafe</a> 
-          </div>
-        </ul>
-
-      </div>
-    </nav>
+<nav class="navbar navbar-expand-lg" id="navbar">
+  <a class="navbar-brand" href="#">FundRace</a>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <ul class="navbar-nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active" name="home">Beranda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" name="campaign">Campaign</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" name="peringkat">Peringkat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" name="reg">Masuk</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" name="reg">Daftar</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" name="cafe">FundRacer's Cafe</a>
+      </li>
+    </ul>
+  </div>
+</nav>

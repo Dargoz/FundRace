@@ -4,12 +4,17 @@
     width: 100%;
     top: 0;
     z-index: 999;
+    color: white;
 }
 
 #nav-text{
     color: white;
 }
 
-#nav-link {
+.nav-item{
+    color: white;
+}
+
+.nav-link {
     color: white;
 }

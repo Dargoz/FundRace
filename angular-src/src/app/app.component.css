@@ -1,16 +1,23 @@
 
 #body-container{
     height: 100%;
+    width: 100%;
 }
 
 
 #my-carousel{
-   
-    margin: 5em auto;
-    width: 95%;
+    width: 100%;
     
 }
 
 .carousel-slide{
-    
+    width: 100%;
+}
+
+.carousel-item{
+    height: 100%;
+}
+
+#menu{
+    height: 100%;
 }

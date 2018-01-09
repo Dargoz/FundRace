@@ -3,14 +3,13 @@
     <app-navbar></app-navbar>
   </div>
 
-  <!-- 
 
+<!-- 
       <flash-messages></flash-messages>
-      <router-outlet></router-outlet> 
--->
+      <router-outlet></router-outlet>  -->
 
 
-  <div class="row">
+  <!-- <div class="row">
     
     <carousel [interval]="0" id="my-carousel">
       <flash-messages></flash-messages>
@@ -26,10 +25,40 @@
       </slide>
     </carousel>
   </div>
+-->
+
+<div id="menu" class="carousel slide" data-ride="carousel" onload="init()">
+  <ol class="carousel-indicators">
+    <li data-target="#menu" data-slide-to="0" class="active"></li>
+    <li data-target="#menu" data-slide-to="1"></li>
+    <li data-target="#menu" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <app-home></app-home>
+    </div>
+    <div class="carousel-item">
+      <app-register></app-register>
+    </div>
+    <div class="carousel-item">
+      <app-login></app-login>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#menu" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#menu" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
   <div>
     <app-footer-bar></app-footer-bar>
-  </div>
+  </div> 
+
+
 
 
 </div>

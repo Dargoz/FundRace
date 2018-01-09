@@ -2,6 +2,9 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import * as abc from '../script.js';
+
+abc.init();
 
 describe('AppComponent', () => {
   beforeEach(() => {
